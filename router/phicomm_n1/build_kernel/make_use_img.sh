@@ -28,11 +28,11 @@
 #========================================================================================================================
 
 # Modify Flippy's kernel folder & *.img file name
-flippy_folder="flippy"
+flippy_folder=${PWD}/"flippy"
 flippy_file="N1_Openwrt_R20.10.20_k5.4.73-flippy-47+o.img"
 
 # Default setting ( Don't modify )
-build_tmp_folder="tmp"
+build_tmp_folder=${PWD}/"build_tmp"
 boot_tmp=${build_tmp_folder}/boot
 root_tmp=${build_tmp_folder}/root
 kernel_tmp=${build_tmp_folder}/kernel_tmp
@@ -113,7 +113,7 @@ copy_boot_root() {
    cp -rf ${root_tmp}/lib/modules ${modules_tmp}
    sync
 
-   echo_color "green" "(3/7) End copy_kernel_modules"  "..."
+   echo_color "green" "(3/7) End copy_boot_root"  "..."
 
 }
 
@@ -194,7 +194,7 @@ build_kernel_modules
 copy_kernel_modules
 umount_ulosetup
 
-echo_color "purple" "Build completed"  "${build_save_folder}: kernel.tar.xz & modules.tar.xz  ..."
+echo_color "purple" "Build completed"  "${build_save_folder} ..."
 
 # end run the script
 
