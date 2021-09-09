@@ -75,6 +75,12 @@ jobs:
     - name: Install feeds
       run: cd openwrt && ./scripts/feeds install -a
 
+    - name: Install feeds packages
+      run: cd openwrt && ./scripts/feeds install -a -p packages
+
+    - name: Install feeds luci
+      run: cd openwrt && ./scripts/feeds install -a -p luci
+
     - name: Load custom configuration
       run: |
         [ -e files ] && mv files openwrt/files
